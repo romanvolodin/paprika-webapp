@@ -17,14 +17,14 @@ const routes = [
     component: ProjectList,
   },
   {
-    path: "/projects/:project_id",
-    name: "project-details",
-    component: ProjectDetails,
-  },
-  {
     path: "/projects/create",
     name: "project-create",
     component: ProjectCreate,
+  },
+  {
+    path: "/projects/:project_id",
+    name: "project-details",
+    component: ProjectDetails,
   },
 ];
 
