@@ -22,7 +22,7 @@ const routes = [
     component: ProjectCreate,
   },
   {
-    path: "/projects/:project_id",
+    path: "/projects/:project_code",
     name: "project-details",
     component: ProjectDetails,
   },
