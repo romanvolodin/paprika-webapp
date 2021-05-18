@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Project List</h1>
+    <h1>Проекты</h1>
     <project-card
       v-for="project in projects"
       :key="project.id"
@@ -26,12 +26,22 @@ export default {
     ProjectService.getProjects()
       .then((response) => {
         response.data.forEach((project) => {
-          let date = new Date(Date.parse(project.created_at));
+          let deadline;
+          let created_at;
+          if (project.deadline) {
+            deadline = new Date(Date.parse(project.deadline));
+          }
+          if (project.created_at) {
+            created_at = new Date(Date.parse(project.created_at));
+          }
           this.projects.push({
             id: project.id,
             title: project.title,
-            date: date.toDateString(),
-            time: date.toLocaleTimeString(),
+            code: project.code,
+            preview: project.preview,
+            deadline: deadline,
+            created_at: created_at,
+            created_by: 1,
           });
         });
         console.log(response.data);
